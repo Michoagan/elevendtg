@@ -15,12 +15,12 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://127.0.0.1:8000',
+        target: 'https://schoolndtg.onrender.com',
         changeOrigin: true,
         secure: false,
       },
       '/sanctum': {
-        target: 'http://127.0.0.1:8000',
+        target: 'https://schoolndtg.onrender.com',
         changeOrigin: true,
         secure: false,
       }
