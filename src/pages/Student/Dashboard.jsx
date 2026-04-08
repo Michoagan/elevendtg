@@ -118,6 +118,9 @@ const Dashboard = () => {
                             borderColor: activeTab === 'notes' ? 'hsl(var(--primary))' : 'transparent',
                             color: activeTab === 'notes' ? 'hsl(var(--primary))' : 'hsl(var(--text-muted))'
                         }}
+                    >
+                        <BarChart2 size={18} />
+                        Mes Notes
                     </button>
                     <button
                         onClick={() => setActiveTab('exercices')}
@@ -196,7 +199,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </>
-                    ) : (
+                    ) : activeTab === 'notes' ? (
                         <div className="p-6">
                             <h2 style={{ fontSize: '1.5rem', color: 'hsl(var(--text-dark))', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
                                 <BarChart2 size={24} color="hsl(var(--primary))" />
