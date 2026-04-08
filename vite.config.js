@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-
 import path from 'path'
 
 // https://vite.dev/config/
@@ -13,6 +12,7 @@ export default defineConfig({
   },
   server: {
     port: 5173,
+    host: true, // Permet de lier toutes les IP locales (utile pour Render)
     proxy: {
       '/api': {
         target: 'https://schoolndtg.onrender.com',
@@ -25,5 +25,9 @@ export default defineConfig({
         secure: false,
       }
     }
+  },
+  preview: {
+    allowedHosts: ['elevendtg.onrender.com'] // Autorise ton domaine Render
+    // ou pour autoriser tous les domaines : allowedHosts: 'all'
   }
 })
