@@ -1,8 +1,9 @@
 import React, { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
+import StudentLayout from './layouts/StudentLayout';
 
 // Lazy loading pages for better performance
 const Home = lazy(() => import('./pages/Public/Home'));
@@ -14,7 +15,12 @@ const Contact = lazy(() => import('./pages/Public/Contact'));
 
 const Login = lazy(() => import('./pages/Student/Login'));
 const Register = lazy(() => import('./pages/Student/Register'));
+
+// Student Pages
 const StudentDashboard = lazy(() => import('./pages/Student/Dashboard'));
+const Epreuves = lazy(() => import('./pages/Student/Epreuves'));
+const Notes = lazy(() => import('./pages/Student/Notes'));
+const Exercices = lazy(() => import('./pages/Student/Exercices'));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -24,41 +30,49 @@ const PageLoader = () => (
   </div>
 );
 
+// Public Layout
+const PublicLayout = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Navbar />
+    <main style={{ flex: '1 0 auto' }}>
+      <Outlet />
+    </main>
+    <Footer />
+  </div>
+);
+
 function App() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Navbar />
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        {/* Public Routes with Navbar & Footer */}
+        <Route element={<PublicLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/classes" element={<Classes />} />
+          <Route path="/rules" element={<Rules />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/student/login" element={<Login />} />
+          <Route path="/student/register" element={<Register />} />
+        </Route>
 
-      <main style={{ flex: '1 0 auto' }}>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/classes" element={<Classes />} />
-            <Route path="/rules" element={<Rules />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/contact" element={<Contact />} />
-
-            {/* Auth Routes */}
-            <Route path="/student/login" element={<Login />} />
-            <Route path="/student/register" element={<Register />} />
-
-            {/* Protected Student Routes */}
-            <Route
-              path="/student/dashboard"
-              element={
-                <ProtectedRoute>
-                  <StudentDashboard />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </Suspense>
-      </main>
-
-      <Footer />
-    </div>
+        {/* Protected Student Routes with Sidebar Layout */}
+        <Route
+          path="/student"
+          element={
+            <ProtectedRoute>
+              <StudentLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route path="dashboard" element={<StudentDashboard />} />
+          <Route path="epreuves" element={<Epreuves />} />
+          <Route path="notes" element={<Notes />} />
+          <Route path="exercices" element={<Exercices />} />
+        </Route>
+      </Routes>
+    </Suspense>
   );
 }
 
