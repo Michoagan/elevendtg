@@ -21,6 +21,8 @@ const StudentDashboard = lazy(() => import('./pages/Student/Dashboard'));
 const Epreuves = lazy(() => import('./pages/Student/Epreuves'));
 const Notes = lazy(() => import('./pages/Student/Notes'));
 const Exercices = lazy(() => import('./pages/Student/Exercices'));
+const Contacts = lazy(() => import('./pages/Student/Contacts'));
+const Archives = lazy(() => import('./pages/Student/Archives'));
 
 // Loading fallback component
 const PageLoader = () => (
@@ -69,7 +71,9 @@ function App() {
           <Route path="dashboard" element={<StudentDashboard />} />
           <Route path="epreuves" element={<Epreuves />} />
           <Route path="notes" element={<Notes />} />
+          <Route path="archives" element={<Archives />} />
           <Route path="exercices" element={<Exercices />} />
+          <Route path="contacts" element={<Contacts />} />
         </Route>
       </Routes>
     </Suspense>

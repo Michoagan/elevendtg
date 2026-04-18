@@ -59,7 +59,7 @@ const Epreuves = () => {
                 </div>
             ) : (
                 <div className="p-6">
-                    <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {filteredEpreuves.length > 0 ? (
                             filteredEpreuves.map(epreuve => (
                                 <div key={epreuve.id} className="card hover-shadow" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem' }}>

@@ -12,7 +12,7 @@ const Contact = () => {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md-grid-cols-2 gap-12 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
 
                 {/* Contact Information */}
                 <div className="flex flex-col gap-8">
@@ -80,7 +80,7 @@ const Contact = () => {
                     </h2>
                     <form className="flex flex-col gap-4" onSubmit={(e) => { e.preventDefault(); alert('Message envoyé !'); }}>
 
-                        <div className="grid grid-cols-1 md-grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-sm font-medium mb-1" style={{ color: 'hsl(var(--text-dark))' }}>Nom complet</label>
                                 <input type="text" className="w-full form-input" required placeholder="Ex: Jean Dupont" />
@@ -124,9 +124,6 @@ const Contact = () => {
             </div>
 
             <style>{`
-        @media (min-width: 768px) {
-          .md-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-        }
         .form-input {
           padding: 0.75rem;
           border-radius: var(--radius-md);

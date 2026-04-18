@@ -48,7 +48,7 @@ const Rules = () => {
                     </button>
                 </div>
 
-                <div className="grid grid-cols-1 md-grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {rules.map((rule, idx) => (
                         <div key={idx} className="flex gap-4 p-4 rounded-lg bg-slate-50 hover-shadow transition-all" style={{ backgroundColor: 'hsl(var(--bg-main))' }}>
                             <div className="flex-shrink-0 mt-1" style={{ color: 'hsl(var(--primary))' }}>
@@ -68,9 +68,6 @@ const Rules = () => {
             </div>
 
             <style>{`
-        @media (min-width: 768px) {
-          .md-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-        }
         .hover-shadow:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
       `}</style>
         </div>

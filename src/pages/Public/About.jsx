@@ -13,7 +13,7 @@ const About = () => {
             </div>
 
             {/* History */}
-            <section className="mb-20 grid grid-cols-1 md-grid-cols-2 gap-12 items-center">
+            <section className="mb-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div className="flex items-center gap-3 mb-4">
                         <div style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', padding: '0.75rem', borderRadius: '50%', color: 'hsl(var(--primary))' }}>
@@ -38,7 +38,7 @@ const About = () => {
 
             {/* Vision & Mission */}
             <section className="mb-20 bg-white p-10 rounded-xl" style={{ border: '1px solid hsl(var(--text-dark)/0.05)', boxShadow: 'var(--shadow-sm)' }}>
-                <div className="grid grid-cols-1 md-grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
                     <div>
                         <div className="flex items-center gap-3 mb-4">
@@ -76,7 +76,7 @@ const About = () => {
                     <h2 style={{ fontSize: '2rem', color: 'hsl(var(--primary-dark))' }}>Nos Valeurs Fondamentales</h2>
                 </div>
 
-                <div className="grid grid-cols-1 md-grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="card text-center flex flex-col items-center">
                         <h3 style={{ color: 'hsl(var(--primary))', marginBottom: '1rem' }}>Excellence</h3>
                         <p style={{ color: 'hsl(var(--text-muted))' }}>
@@ -98,12 +98,6 @@ const About = () => {
                 </div>
             </section>
 
-            <style>{`
-        @media (min-width: 768px) {
-          .md-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-          .md-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-        }
-      `}</style>
         </div>
     );
 };

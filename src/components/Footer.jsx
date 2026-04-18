@@ -5,7 +5,7 @@ import { Facebook, Instagram, Youtube, Phone, Mail, MapPin } from 'lucide-react'
 const Footer = () => {
     return (
         <footer style={{ backgroundColor: 'hsl(var(--text-dark))', color: 'hsl(var(--bg-main))', padding: '4rem 0 2rem 0', marginTop: 'auto' }}>
-            <div className="container grid grid-cols-1 md-grid-cols-4 gap-8 mb-8">
+            <div className="container grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
 
                 {/* Brand & Presentation */}
                 <div className="flex flex-col gap-4">
@@ -92,11 +92,6 @@ const Footer = () => {
             <div className="container" style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem', textAlign: 'center', color: 'hsl(var(--text-muted))', fontSize: '0.9rem' }}>
                 <p>© {new Date().getFullYear()} C.S. Notre Dame de Toutes Graces. Tous droits réservés.</p>
             </div>
-            <style>{`
-        @media (min-width: 768px) {
-          .md-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-        }
-      `}</style>
         </footer>
     );
 };

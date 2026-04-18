@@ -38,7 +38,7 @@ const Navbar = () => {
                 </Link>
 
                 {/* Desktop Menu */}
-                <div style={{ display: 'none' }} className="md-flex items-center gap-6">
+                <div className="hidden md:flex items-center gap-6">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
@@ -63,7 +63,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md-none"
+                    className="md:hidden"
                     onClick={() => setIsOpen(!isOpen)}
                     style={{ color: 'hsl(var(--text-dark))' }}
                 >
@@ -102,12 +102,6 @@ const Navbar = () => {
                     </div>
                 </div>
             )}
-            <style>{`
-        @media (min-width: 768px) {
-          .md-flex { display: flex !important; }
-          .md-none { display: none !important; }
-        }
-      `}</style>
         </nav>
     );
 };

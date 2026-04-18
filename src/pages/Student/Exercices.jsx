@@ -43,7 +43,7 @@ const Exercices = () => {
                 </div>
             ) : (
                 <div className="p-6">
-                    <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {exercices.length > 0 ? (
                             exercices.map(exo => (
                                 <div key={exo.id} className="card hover-shadow relative" style={{ display: 'flex', flexDirection: 'column', padding: '1.5rem', borderTop: '4px solid hsl(var(--primary))' }}>

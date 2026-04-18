@@ -25,7 +25,7 @@ const Home = () => {
                     <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto 2.5rem auto', color: 'hsl(var(--text-light) / 0.9)' }}>
                         L'excellence académique alliée à des valeurs morales fortes pour former les leaders de demain, du primaire au secondaire.
                     </p>
-                    <div className="flex justify-center gap-4 flex-col md-flex-row">
+                    <div className="flex justify-center gap-4 flex-col md:flex-row">
                         <Link to="/about" className="btn" style={{ backgroundColor: 'white', color: 'hsl(var(--primary-dark))' }}>
                             Découvrir l'école
                         </Link>
@@ -39,7 +39,7 @@ const Home = () => {
             {/* Stats Section */}
             <section className="py-12 bg-white">
                 <div className="container">
-                    <div className="grid grid-cols-1 md-grid-cols-3 gap-8 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                         <div className="flex flex-col items-center">
                             <div style={{ backgroundColor: 'hsl(var(--primary) / 0.1)', padding: '1.5rem', borderRadius: '50%', color: 'hsl(var(--primary))', marginBottom: '1rem' }}>
                                 <Users size={40} />
@@ -103,7 +103,7 @@ const Home = () => {
                         Un environnement sécurisé et une pédagogie innovante pour la réussite de vos enfants.
                     </p>
 
-                    <div className="grid grid-cols-1 md-grid-cols-2 gap-8 text-left mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left mb-12">
                         <div className="card flex gap-4">
                             <ShieldCheck size={32} color="hsl(var(--primary))" style={{ flexShrink: 0 }} />
                             <div>
@@ -126,13 +126,6 @@ const Home = () => {
                 </div>
             </section>
 
-            <style>{`
-        @media (min-width: 768px) {
-          .md-flex-row { flex-direction: row !important; }
-          .md-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-          .md-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-        }
-      `}</style>
         </div>
     );
 };

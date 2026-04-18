@@ -29,7 +29,8 @@ export const authService = {
 export const eleveService = {
     getNotes: () => api.get('/eleve/notes'),
     getEpreuves: () => api.get('/eleve/epreuves'),
-    getExercices: () => api.get('/eleve/exercices')
+    getExercices: () => api.get('/eleve/exercices'),
+    getContacts: () => api.get('/eleve/contacts')
 };
 
 export default api;

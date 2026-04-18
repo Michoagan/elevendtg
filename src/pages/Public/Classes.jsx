@@ -43,7 +43,7 @@ const Classes = () => {
                             <h2 style={{ fontSize: '2rem', margin: 0, color: 'hsl(var(--text-dark))' }}>{level.category}</h2>
                         </div>
 
-                        <div className="grid grid-cols-1 md-grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {level.items.map((item, idx) => (
                                 <div key={idx} className="card" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                                     <div className="flex items-center gap-2">
@@ -57,11 +57,6 @@ const Classes = () => {
                     </div>
                 ))}
             </div>
-            <style>{`
-        @media (min-width: 768px) {
-          .md-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-        }
-      `}</style>
         </div>
     );
 };

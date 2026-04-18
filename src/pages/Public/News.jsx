@@ -39,7 +39,7 @@ const News = () => {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md-grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {newsItems.map(item => (
                     <div key={item.id} className="card p-0 overflow-hidden flex flex-col" style={{ padding: 0 }}>
                         {/* Image Banner */}
@@ -98,11 +98,6 @@ const News = () => {
                 </div>
             </div >
 
-            <style>{`
-        @media (min-width: 768px) {
-          .md-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
-        }
-      `}</style>
         </div >
     );
 };

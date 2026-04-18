@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { 
     LayoutDashboard, 
     FileText, 
@@ -8,11 +8,14 @@ import {
     LogOut, 
     Menu, 
     X,
-    Award
+    Award,
+    Users,
+    Archive
 } from 'lucide-react';
 
 const StudentLayout = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [studentInfo, setStudentInfo] = useState({ nom: '', classe: '', matricule: '' });
 
@@ -40,7 +43,9 @@ const StudentLayout = () => {
         { path: '/student/dashboard', icon: <LayoutDashboard size={20} />, label: 'Tableau de bord' },
         { path: '/student/notes', icon: <BarChart2 size={20} />, label: 'Mes Notes' },
         { path: '/student/epreuves', icon: <FileText size={20} />, label: 'Anciennes Épreuves' },
+        { path: '/student/archives', icon: <Archive size={20} />, label: 'Archives (Bulletins)' },
         { path: '/student/exercices', icon: <BookOpen size={20} />, label: 'Exercices à faire' },
+        { path: '/student/contacts', icon: <Users size={20} />, label: 'Contacts' },
     ];
 
     const closeSidebar = () => {
@@ -50,7 +55,7 @@ const StudentLayout = () => {
     };
 
     return (
-        <div className="flex h-screen overflow-hidden bg-main">
+        <div className="flex h-[100dvh] overflow-hidden bg-main">
             {/* Mobile Sidebar Overlay */}
             {isSidebarOpen && (
                 <div 
@@ -165,20 +170,6 @@ const StudentLayout = () => {
                     <Outlet context={{ studentInfo }} />
                 </main>
             </div>
-            <style>{`
-                .lg\\:hidden { display: none; }
-                .lg\\:flex { display: flex; }
-                .lg\\:static { position: static; }
-                .lg\\:inset-0 { inset: 0; }
-                .lg\\:translate-x-0 { transform: translateX(0); }
-                .lg\\:px-8 { padding-left: 2rem; padding-right: 2rem; }
-                .lg\\:p-8 { padding: 2rem; }
-                @media (max-width: 1023px) {
-                    .lg\\:hidden { display: block; }
-                    .lg\\:flex { display: none; }
-                    .lg\\:static { position: fixed; }
-                }
-            `}</style>
         </div>
     );
 };
